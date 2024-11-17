@@ -6,6 +6,9 @@ services:
     image: postgres:9.6
     ports:
       - "5434:5432"
+    volumes:
+      - ./registry_price_paid.sql:/docker-entrypoint-initdb.d/setup.sql
+      - ./pp-monthly-update-new-version.csv:/pp-monthly-update-new-version.csv
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
